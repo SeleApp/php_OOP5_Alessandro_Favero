@@ -17,17 +17,18 @@ class Post
 
 	private function getCategoryLabel()
 	{
-		ob_start();
-		$this->categoria->getMyCategory();
-		return trim(ob_get_clean());
+		return $this->categoria->getMyCategory();
 	}
 
 	public function showCompleteArticle()
 	{
-		echo '<h3>' . $this->titolo . '</h3>';
-		echo '<p><strong>Categoria:</strong> ' . $this->getCategoryLabel() . '</p>';
-		echo '<p><strong>Tag:</strong> ' . implode(', ', $this->tag) . '</p>';
-		echo '<hr>';
+		$article = '<article>';
+		$article .= '<h3>' . htmlspecialchars($this->titolo, ENT_QUOTES, 'UTF-8') . '</h3>';
+		$article .= '<p><strong>Categoria:</strong> ' . $this->getCategoryLabel() . '</p>';
+		$article .= '<p><strong>Tag:</strong> ' . htmlspecialchars(implode(', ', $this->tag), ENT_QUOTES, 'UTF-8') . '</p>';
+		$article .= '</article><hr>';
+
+		echo $article;
 	}
 }
 

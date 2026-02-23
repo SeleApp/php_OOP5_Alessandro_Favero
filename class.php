@@ -2,37 +2,37 @@
 
 abstract class Category
 {
-    abstract public function getMyCategory();
+    abstract public function getMyCategory(): string;
 }
 
 class Attualita extends Category
 {
-    public function getMyCategory()
+    public function getMyCategory(): string
     {
-        echo "Attualita";
+        return '<span>Attualita</span>';
     }
 }
 
 class Sport extends Category
 {
-    public function getMyCategory()
+    public function getMyCategory(): string
     {
-        echo "Sport";
+        return '<span>Sport</span>';
     }
 }
 
 class Gossip extends Category
 {
-    public function getMyCategory()
+    public function getMyCategory(): string
     {
-        echo "Gossip";
+        return '<span>Gossip</span>';
     }
 }
 
 class Storia extends Category
 {
-    public function getMyCategory()
+    public function getMyCategory(): string
     {
-        echo "Storia";
+        return '<span>Storia</span>';
     }
 }
